@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+#*
+ #看不到我
+  *#${valuel}
+    #foreach($color in $colors)
+        Color$!{foreach.index}/$!{foreach.count}: $!{color}
+    #end
+    #foreach($maps in $map.keySet())
+        Map $!{foreach.count}/$!{foreach.index}: $!{maps}$map.get($maps)
+    #end
+    #foreach($kv in $map.entrySet())
+        Map1 $!{foreach.count}/$!{foreach.index}: ${kv.key} ${kv.value}
+    #end
+    User:${user.name}
+User:${user.getName()}
+    #set($title="nowcoder")
+    Include:#include("header.vm")<br>
+    Parse:#parse("header.vm")
+    #macro (render_color,$color,$index)
+        Color By Macro $index,$color
+    #end
+    #foreach($color in $colors)
+        #render_color($color,$foreach.index)
+    #end
+    #set($hello = "hello")
+    #set($hworld1="$!{hello} world")
+    #set($hworld2='$!{hello} world')
+    hworld1:$hworld1
+    hworld2:$hworld2
+</pre>
+</body>
+</html>
